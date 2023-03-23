@@ -1,5 +1,5 @@
-import {createRandomIdFromRangeGenerator, getRandomInteger} from './utils.js';
-import {photosQuantity} from './generate-photo.js';
+import { createRandomIdFromRangeGenerator, getRandomInteger } from './utils.js';
+import { photosQuantity } from './generate-photo.js';
 
 // количество аватарок
 const avatarQuantity = 6;
@@ -32,21 +32,23 @@ const NAMES = [
   'Елизавета',
 ];
 
-
 // генератор id комментария
 const generateCommentsId = createRandomIdFromRangeGenerator(
   1,
   messageIdMaxValue
 );
 
+// генератор количества комментариев
+const messagesQuantity = function () {
+  return getRandomInteger(1, messageMaxQuantity);
+};
 // генератор сообщения (комментария)
 const generateCommentsMessage = () => {
   // eslint-disable-next-line prefer-const
   let previousValues = [];
   // eslint-disable-next-line prefer-const
-  let messages = getRandomInteger(1, messageMaxQuantity);
   let currentValue;
-  for (let i = messages; i > 0; i--) {
+  for (let i = messagesQuantity(); i > 0; i--) {
     currentValue = COMMENTS[getRandomInteger(0, COMMENTS.length - 2)];
     if (previousValues.length <= COMMENTS.length) {
       while (previousValues.includes(currentValue)) {
@@ -69,4 +71,8 @@ const createComment = () => ({
 // генератор массива объектов комментариев
 
 // eslint-disable-next-line no-unused-vars
-const comments = Array.from({length: photosQuantity}, createComment);
+const createComments = () =>
+  Array.from({ length: photosQuantity }, createComment);
+
+export { createComments };
+export { messagesQuantity };

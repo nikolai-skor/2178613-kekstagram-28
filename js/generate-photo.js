@@ -1,4 +1,4 @@
-import {createRandomIdFromRangeGenerator, getRandomInteger} from './utils.js';
+import { createRandomIdFromRangeGenerator, getRandomInteger } from './utils.js';
 // количество генерируемых фотографий в заданном промежутке
 const minPhotoQuantity = 1;
 const maxPhotoQuantity = 25;
@@ -57,6 +57,7 @@ const createPhoto = () => {
 
 // генератор массива объектов фотографий в заданном промежутке
 // eslint-disable-next-line no-unused-vars
-const photos = Array.from({length: photosQuantity}, createPhoto);
+const createPhotos = () => Array.from({ length: photosQuantity }, createPhoto);
 
-export {photosQuantity};
+export { photosQuantity };
+export { createPhotos };
