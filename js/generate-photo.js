@@ -52,7 +52,7 @@ const createPhoto = () => {
     url: `photos/${getPhotoUrl}.jpg`,
     description: PHOTO_DESCRIPTION[getPhotoUrl - 1],
     likes: getRandomInteger(15, 200),
-  };
+  }
 };
 
 // генератор массива объектов фотографий в заданном промежутке
@@ -61,3 +61,4 @@ const createPhotos = () => Array.from({ length: photosQuantity }, createPhoto);
 
 export { photosQuantity };
 export { createPhotos };
+

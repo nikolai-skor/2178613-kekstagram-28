@@ -12,8 +12,11 @@ const picturesItem = createPhotos();
 const picturesListFragment = document.createDocumentFragment();
 
 // код
+
 // создание элементов фотографий из массива данных (расположение фото(url), количество лайков(likes), количество комментариев(comments)) и сохранение в fragment
-picturesItem.forEach(({ url, likes }) => {
+
+const createPhotosElements = function (picturesItem) {
+ picturesItem.forEach(({ url, likes }) => {
   const photoElement = pictureTemplate.cloneNode(true);
   photoElement.querySelector('.picture__img').src = url;
   photoElement.querySelector('.picture__likes').textContent = likes;
@@ -21,6 +24,10 @@ picturesItem.forEach(({ url, likes }) => {
     messagesQuantity();
   picturesListFragment.appendChild(photoElement);
 });
+}
 
+createPhotosElements(picturesItem);
 // сохранение данных из fragment в контейнер фотографий
 picturesList.appendChild(picturesListFragment);
+
+export {createPhotosElements, picturesList};
