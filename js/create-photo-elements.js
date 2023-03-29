@@ -15,7 +15,7 @@ const picturesListFragment = document.createDocumentFragment();
 
 // создание элементов фотографий из массива данных (расположение фото(url), количество лайков(likes), количество комментариев(comments)) и сохранение в fragment
 
-const createPhotosElements = function (picturesItem) {
+const createPhotoElements = function (picturesItem) {
  picturesItem.forEach(({ url, likes }) => {
   const photoElement = pictureTemplate.cloneNode(true);
   photoElement.querySelector('.picture__img').src = url;
@@ -26,8 +26,8 @@ const createPhotosElements = function (picturesItem) {
 });
 }
 
-createPhotosElements(picturesItem);
+createPhotoElements(picturesItem);
 // сохранение данных из fragment в контейнер фотографий
 picturesList.appendChild(picturesListFragment);
 
-export {createPhotosElements, picturesList};
+export {createPhotoElements, picturesList};
