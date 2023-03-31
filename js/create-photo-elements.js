@@ -1,5 +1,5 @@
 // импортируемые данные
-import {createPhotos} from './generate-photo.js';
+import {createPictures} from './generate-photo.js';
 import {messagesQuantity} from './generate-comment.js';
 
 // шаблон #picture в разметке
@@ -7,7 +7,7 @@ const pictureTemplate = document.querySelector('#picture').content;
 // контейнер с фотографиями
 const picturesList = document.querySelector('.pictures');
 // массив фотографий
-const picturesItem = createPhotos();
+const picturesItem = createPictures();
 // фрагмент для временного хранения создаваемого контейнера с фотографиями
 const picturesListFragment = document.createDocumentFragment();
 

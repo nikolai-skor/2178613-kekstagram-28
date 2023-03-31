@@ -1,5 +1,5 @@
 import { createRandomIdFromRangeGenerator, getRandomInteger } from './utils.js';
-import { photosQuantity } from './generate-photo.js';
+import { picturesQuantity } from './generate-photo.js';
 
 // количество аватарок
 const avatarQuantity = 6;
@@ -72,7 +72,7 @@ const createComment = () => ({
 
 // eslint-disable-next-line no-unused-vars
 const createComments = () =>
-  Array.from({ length: photosQuantity }, createComment);
+  Array.from({ length: picturesQuantity }, createComment);
 
 export { createComments };
 export { messagesQuantity };

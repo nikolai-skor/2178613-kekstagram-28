@@ -2,7 +2,7 @@ import { createRandomIdFromRangeGenerator, getRandomInteger } from './utils.js';
 // количество генерируемых фотографий в заданном промежутке
 const minPhotoQuantity = 1;
 const maxPhotoQuantity = 25;
-const photosQuantity = maxPhotoQuantity - minPhotoQuantity + 1;
+const picturesQuantity = maxPhotoQuantity - minPhotoQuantity + 1;
 // описание фотографий
 const PHOTO_DESCRIPTION = [
   'Самый крутой бассейн',
@@ -33,22 +33,22 @@ const PHOTO_DESCRIPTION = [
 ];
 
 // генератор уникальных id в заданном промежутке
-const generatePhotoId = createRandomIdFromRangeGenerator(
+const generatePictureId = createRandomIdFromRangeGenerator(
   minPhotoQuantity,
   maxPhotoQuantity
 );
 
 // генератор уникальных url в заданном промежутке
-const generatePhotoUrl = createRandomIdFromRangeGenerator(
+const generatePictureUrl = createRandomIdFromRangeGenerator(
   minPhotoQuantity,
   maxPhotoQuantity
 );
 
 // генератор объекта фотографий
-const createPhoto = () => {
-  const getPhotoUrl = generatePhotoUrl();
+const createPicture = () => {
+  const getPhotoUrl = generatePictureUrl();
   return {
-    id: generatePhotoId(),
+    id: generatePictureId(),
     url: `photos/${getPhotoUrl}.jpg`,
     description: PHOTO_DESCRIPTION[getPhotoUrl - 1],
     likes: getRandomInteger(15, 200),
@@ -57,7 +57,7 @@ const createPhoto = () => {
 
 // генератор массива объектов фотографий в заданном промежутке
 // eslint-disable-next-line no-unused-vars
-const createPhotos = () => Array.from({ length: photosQuantity }, createPhoto);
+const createPictures = () => Array.from({ length: picturesQuantity }, createPicture);
 
-export { photosQuantity };
-export { createPhotos };
+export { picturesQuantity,createPictures };
+
