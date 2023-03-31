@@ -78,8 +78,8 @@ const createComment = () => ({
 // генератор массива объектов комментариев
 
 // eslint-disable-next-line no-unused-vars
-const createComments = () =>
-  Array.from({ length: picturesQuantity }, createComment);
+// const createComments = () =>
+//   Array.from({ length: commentsQuantity }, createComment);
 
-export { createComments,generateCommentsQuantity,createComment };
+export { generateCommentsQuantity,createComment };
 

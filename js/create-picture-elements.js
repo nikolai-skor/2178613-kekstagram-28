@@ -23,7 +23,7 @@ const createPictureElements = function () {
     photoElement.querySelector('.picture__comments').textContent = generateCommentsQuantity();
     photoElement.querySelector('.picture__img').alt = description;
     picturesListFragment.appendChild(photoElement);
-    arrayCommentsQuantity.push(photoElement.querySelector('.picture__comments').textContent);
+
   });
 };
 

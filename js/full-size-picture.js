@@ -1,7 +1,7 @@
 import {picturesList} from './create-picture-elements.js';
 import {isEscapeKey} from './utils.js';
-
-
+import {createCommentElement} from './create-comment-elements.js';
+import {createComment} from './generate-comment.js';
 
 const body = document.querySelector('body');
 // блок просмотра фотографий в полном размере
@@ -20,7 +20,7 @@ const descriptionFullSizePicture = fullSizePicture.querySelector('.social__capti
 const commentsCounterFullSizePicture = fullSizePicture.querySelector('.social__comment-count');
 // блок загрузки новых комментариев фотографии в полном размере
 const commentsLoaderFullSizePicture = fullSizePicture.querySelector('.comments-loader');
-
+// список комментариев
 
 // функция открытия полного размера фотографии
 const openFullSizePicture = function () {
@@ -43,6 +43,7 @@ const onDocumentKeydown = function (evt) {
 };
 
 const userOpenFullSizePicture = function () {
+  let socialComments = document.querySelector('.social__comments');
   picturesList.addEventListener('click', function (evt) {
     if (evt.target.closest('.picture__img')) {
       openFullSizePicture();
@@ -50,9 +51,16 @@ const userOpenFullSizePicture = function () {
       likesCountFullSizePicture.textContent = evt.target.closest('.picture').querySelector('.picture__likes').textContent;
       commentsCountFullSizePicture.textContent = evt.target.closest('.picture').querySelector('.picture__comments').textContent;
       descriptionFullSizePicture.textContent = evt.target.alt;
-      commentsCounterFullSizePicture.classList.add('hidden');
+      // commentsCounterFullSizePicture.classList.add('hidden');
       commentsLoaderFullSizePicture.classList.add('hidden');
       body.classList.add('modal-open');
+      const commentListFragment = document.createDocumentFragment();
+      const createComments =  Array.from({length: evt.target.closest('.picture').querySelector('.picture__comments').textContent}, createComment);
+      
+       createCommentElement(createComments);
+
+
+console.log(createComments);
     }
   });
 }
