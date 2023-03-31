@@ -1,5 +1,8 @@
 
 
-import {createPictureElements, createPicturesList} from './create-photo-elements.js';
+import {createPictureElements, createPicturesList} from './create-picture-elements.js';
 createPictureElements();
 createPicturesList();
+
+import {userOpenFullSizePicture} from './full-size-picture.js';
+userOpenFullSizePicture();
