@@ -51,18 +51,17 @@ const userOpenFullSizePicture = function () {
       likesCountFullSizePicture.textContent = evt.target.closest('.picture').querySelector('.picture__likes').textContent;
       commentsCountFullSizePicture.textContent = evt.target.closest('.picture').querySelector('.picture__comments').textContent;
       descriptionFullSizePicture.textContent = evt.target.alt;
-      // commentsCounterFullSizePicture.classList.add('hidden');
+      commentsCounterFullSizePicture.classList.add('hidden');
       commentsLoaderFullSizePicture.classList.add('hidden');
       body.classList.add('modal-open');
-      const commentListFragment = document.createDocumentFragment();
+
       const createComments =  Array.from({length: evt.target.closest('.picture').querySelector('.picture__comments').textContent}, createComment);
 
-       createCommentElement(createComments);
-socialComments.appendChild(commentListFragment);
+     const newComments = createCommentElement(createComments);
+     socialComments.innerHTML = '';
+socialComments.appendChild(newComments);
 
-console.log(socialComments);
-console.log(commentListFragment);
-console.log(createComments);
+
     }
   });
 }

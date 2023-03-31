@@ -28,8 +28,8 @@ item.forEach(({avatar, name, message}) => {
   commentElement.appendChild(imageElement);
   commentElement.appendChild(commentTextElement);
   commentsListFragment.appendChild(commentElement);
-  return commentsListFragment;
 });
+  return commentsListFragment;
 };
 
 
