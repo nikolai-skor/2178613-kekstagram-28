@@ -56,10 +56,12 @@ const userOpenFullSizePicture = function () {
       body.classList.add('modal-open');
       const commentListFragment = document.createDocumentFragment();
       const createComments =  Array.from({length: evt.target.closest('.picture').querySelector('.picture__comments').textContent}, createComment);
-      
+
        createCommentElement(createComments);
+socialComments.appendChild(commentListFragment);
 
-
+console.log(socialComments);
+console.log(commentListFragment);
 console.log(createComments);
     }
   });
