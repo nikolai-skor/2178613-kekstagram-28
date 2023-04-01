@@ -53,15 +53,23 @@ const userOpenFullSizePicture = function () {
       likesCountFullSizePicture.textContent = evt.target.closest('.picture').querySelector('.picture__likes').textContent;
       commentsCountFullSizePicture.textContent = evt.target.closest('.picture').querySelector('.picture__comments').textContent;
       descriptionFullSizePicture.textContent = evt.target.alt;
-      commentsCounterFullSizePicture.classList.add('hidden');
-      commentsLoaderFullSizePicture.classList.add('hidden');
       body.classList.add('modal-open');
       const createComments = Array.from({length: evt.target.closest('.picture').querySelector('.picture__comments').textContent}, createComment);
       const newComments = createCommentElement(createComments);
       socialComments.innerHTML = '';
-      socialComments.appendChild(newComments);
+// выводит не более 5 комментариев вначале отображения режима просмотра фотографии
+      for (let i = newComments.children.length - 1; i >= 0; i--) {
+if (socialComments.children.length < 5) {
+  socialComments.append(newComments.children[i]);
+}
+
+      }
     }
   });
 };
+
+
+
+
 
 export {userOpenFullSizePicture, fullSizePicture};

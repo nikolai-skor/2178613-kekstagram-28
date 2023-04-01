@@ -1,5 +1,5 @@
 
-// функция создает список комментариев из массива данных (расположение фото(url), количество лайков(likes), количество комментариев(comments))я
+// функция создает список комментариев из массива данных (расположение фото(url), количество лайков(likes), количество комментариев(comments))
 const createCommentElement = function (commentsArray) {
   const commentsListFragment = document.createDocumentFragment();
   commentsArray.forEach(({avatar, name, message}) => {
