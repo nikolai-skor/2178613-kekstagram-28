@@ -1,5 +1,4 @@
-import { createRandomIdFromRangeGenerator, getRandomInteger } from './utils.js';
-import { picturesQuantity } from './generate-picture.js';
+import {createRandomIdFromRangeGenerator, getRandomInteger} from './utils.js';
 
 // количество аватарок
 const avatarQuantity = 6;
@@ -35,9 +34,8 @@ const NAMES = [
 ];
 
 const generateCommentsQuantity = function () {
-  const commentsQuantity = getRandomInteger(1, commentsMaxQuantity);
-  return commentsQuantity;
-}
+  return getRandomInteger(1, commentsMaxQuantity);
+};
 
 // генератор id комментария
 const generateCommentsId = createRandomIdFromRangeGenerator(
@@ -75,11 +73,5 @@ const createComment = () => ({
   name: NAMES[getRandomInteger(0, NAMES.length - 2)],
 });
 
-// генератор массива объектов комментариев
-
-// eslint-disable-next-line no-unused-vars
-// const createComments = () =>
-//   Array.from({ length: commentsQuantity }, createComment);
-
-export { generateCommentsQuantity,createComment };
+export {generateCommentsQuantity, createComment};
 

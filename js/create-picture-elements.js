@@ -10,13 +10,12 @@ const picturesList = document.querySelector('.pictures');
 const picturesItem = createPictures();
 // фрагмент для временного хранения создаваемого контейнера с фотографиями
 const picturesListFragment = document.createDocumentFragment();
-// массив количества комментариев каждой фотографии
-const arrayCommentsQuantity = [];
+
 // код
 
 // создание элементов фотографий из массива данных (расположение фото(url), количество лайков(likes), количество комментариев(comments)) и сохранение в fragment
 const createPictureElements = function () {
-    picturesItem.forEach(({url, likes,description}) => {
+  picturesItem.forEach(({url, likes, description}) => {
     const photoElement = pictureTemplate.cloneNode(true);
     photoElement.querySelector('.picture__img').src = url;
     photoElement.querySelector('.picture__likes').textContent = likes;
@@ -27,10 +26,9 @@ const createPictureElements = function () {
   });
 };
 
-
 // сохранение данных из fragment в контейнер фотографий
 const createPicturesList = function () {
   picturesList.appendChild(picturesListFragment);
 };
 
-export { createPictureElements, createPicturesList,picturesList, arrayCommentsQuantity };
+export {createPictureElements, createPicturesList, picturesList};

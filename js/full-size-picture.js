@@ -28,12 +28,14 @@ const openFullSizePicture = function () {
   document.addEventListener('keydown', onDocumentKeydown);
   bigPictureCansel.addEventListener('click', closeFullSizePicture);
 };
+
 // функция закрытия полного размера фотографии
 const closeFullSizePicture = function () {
   fullSizePicture.classList.add('hidden');
   document.removeEventListener('keydown', onDocumentKeydown);
   bigPictureCansel.removeEventListener('click', closeFullSizePicture);
 };
+
 // функция нажатия клавиши Escape для закрытия полного размера фотографии
 const onDocumentKeydown = function (evt) {
   if (isEscapeKey(evt)) {
@@ -43,8 +45,8 @@ const onDocumentKeydown = function (evt) {
 };
 
 const userOpenFullSizePicture = function () {
-  let socialComments = document.querySelector('.social__comments');
-  picturesList.addEventListener('click', function (evt) {
+  const socialComments = document.querySelector('.social__comments');
+  picturesList.addEventListener('click', (evt) => {
     if (evt.target.closest('.picture__img')) {
       openFullSizePicture();
       fullSizePictureImg.src = evt.target.src;
@@ -54,16 +56,12 @@ const userOpenFullSizePicture = function () {
       commentsCounterFullSizePicture.classList.add('hidden');
       commentsLoaderFullSizePicture.classList.add('hidden');
       body.classList.add('modal-open');
-
-      const createComments =  Array.from({length: evt.target.closest('.picture').querySelector('.picture__comments').textContent}, createComment);
-
-     const newComments = createCommentElement(createComments);
-     socialComments.innerHTML = '';
-socialComments.appendChild(newComments);
-
-
+      const createComments = Array.from({length: evt.target.closest('.picture').querySelector('.picture__comments').textContent}, createComment);
+      const newComments = createCommentElement(createComments);
+      socialComments.innerHTML = '';
+      socialComments.appendChild(newComments);
     }
   });
-}
+};
 
 export {userOpenFullSizePicture, fullSizePicture};
