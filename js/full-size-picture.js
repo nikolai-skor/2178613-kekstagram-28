@@ -22,18 +22,18 @@ const commentsCounterFullSizePicture = fullSizePicture.querySelector('.social__c
 const commentsLoaderFullSizePicture = fullSizePicture.querySelector('.comments-loader');
 // список комментариев
 
-// функция открытия полного размера фотографии
-const openFullSizePicture = function () {
-  fullSizePicture.classList.remove('hidden');
-  document.addEventListener('keydown', onDocumentKeydown);
-  bigPictureCansel.addEventListener('click', closeFullSizePicture);
+// функция закрытия полного размера фотографии
+const closeFullSizePicture = function (keyDownEvent, closeEvent) {
+  fullSizePicture.classList.add('hidden');
+  document.removeEventListener('keydown', keyDownEvent);
+  bigPictureCansel.removeEventListener('click', closeEvent);
 };
 
-// функция закрытия полного размера фотографии
-const closeFullSizePicture = function () {
-  fullSizePicture.classList.add('hidden');
-  document.removeEventListener('keydown', onDocumentKeydown);
-  bigPictureCansel.removeEventListener('click', closeFullSizePicture);
+// функция открытия полного размера фотографии
+const openFullSizePicture = function (keyDownEvent) {
+  fullSizePicture.classList.remove('hidden');
+  document.addEventListener('keydown', keyDownEvent);
+  bigPictureCansel.addEventListener('click', closeFullSizePicture);
 };
 
 // функция нажатия клавиши Escape для закрытия полного размера фотографии
@@ -48,7 +48,7 @@ const userOpenFullSizePicture = function () {
   const socialComments = document.querySelector('.social__comments');
   picturesList.addEventListener('click', (evt) => {
     if (evt.target.closest('.picture__img')) {
-      openFullSizePicture();
+      openFullSizePicture(onDocumentKeydown);
       fullSizePictureImg.src = evt.target.src;
       likesCountFullSizePicture.textContent = evt.target.closest('.picture').querySelector('.picture__likes').textContent;
       commentsCountFullSizePicture.textContent = evt.target.closest('.picture').querySelector('.picture__comments').textContent;
