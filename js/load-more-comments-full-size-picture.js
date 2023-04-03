@@ -5,10 +5,10 @@ const loadMoreComments = function (items, list, comments) {
 
     list.append(items.children[i]);
 
-    if (list.children.length % 5 === 0) {
+    if (list.children.length % 5 === 0 || items.children.length === 0) {
 
       commentsCounterFullSizePicture.textContent = `${list.children.length} из ${comments}`;
-      return list.children.length;
+      break;
     }
   }
 };
