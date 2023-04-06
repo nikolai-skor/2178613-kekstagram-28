@@ -40,12 +40,11 @@ const addClassToPreview = function (evt) {
     } else {
       previewPicture.classList.remove(`effects__preview--${pictureEffects[i].value}`);
     }
-return  console.log(previewPicture);
   }
 };
 // функция добавляет класс выбранного эффекта в превью при изменении эффекта
 
-addClassToPreview();
+effectsList.addEventListener('change', addClassToPreview);
 
 const createSlider = () => {
   noUiSlider.create(sliderElement, {
@@ -59,9 +58,9 @@ const createSlider = () => {
   });
 };
 
-sliderElement.noUiSlider.on('update', (...rest) => {
-  effectsLevelValue.value = sliderElement.noUiSlider.get();
-});
+// sliderElement.noUiSlider.on('update', (...rest) => {
+//   effectsLevelValue.value = sliderElement.noUiSlider.get();
+// });
 
 
 createSlider();
