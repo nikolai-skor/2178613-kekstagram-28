@@ -2,7 +2,7 @@ import {isEscapeKey} from './utils.js';
 import {onClickControlSmaller, onClickControlBigger} from './form-editing-size.js';
 
 
-const formEditing = document.querySelector('.img-upload__overlay');
+const formLoadEditing = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 const uploadFile = document.querySelector('#upload-file');
 const uploadCancel = document.querySelector('#upload-cancel');
@@ -24,7 +24,7 @@ const userOpenUploadFile = function () {
 
 // открывает просмотр фотографии в режиме редактирования
 const openFormEditing = function () {
-  formEditing.classList.remove('hidden');
+  formLoadEditing.classList.remove('hidden');
   body.classList.add('.modal-open');
   uploadCancel.addEventListener('click', closeFormEditing);
   document.addEventListener('keydown', onDocumentKeydown);
@@ -32,7 +32,7 @@ const openFormEditing = function () {
 
 // закрывает просмотр фотографии в режиме редактирования
 const closeFormEditing = function () {
-  formEditing.classList.add('hidden');
+  formLoadEditing.classList.add('hidden');
   body.classList.remove('.modal-open');
   uploadCancel.removeEventListener('click', closeFormEditing);
   document.removeEventListener('keydown', onDocumentKeydown);

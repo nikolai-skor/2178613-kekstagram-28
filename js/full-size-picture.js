@@ -51,16 +51,17 @@ function onDocumentKeydown(evt) {
 
 
 const onPicturelistClickHandler = (evt) => {
+  const picture = evt.target.closest('.picture');
   if (evt.target.closest('.picture__img')) {
-    const commentsQuantity = evt.target.closest('.picture').querySelector('.picture__comments').textContent;
+    const commentsQuantity = picture.querySelector('.picture__comments').textContent;
     openFullSizePicture();
     fullSizePictureImg.src = evt.target.src;
-    likesCountFullSizePicture.textContent = evt.target.closest('.picture').querySelector('.picture__likes').textContent;
-    commentsCountFullSizePicture.textContent = evt.target.closest('.picture').querySelector('.picture__comments').textContent;
+    likesCountFullSizePicture.textContent = picture.querySelector('.picture__likes').textContent;
+    commentsCountFullSizePicture.textContent = picture.querySelector('.picture__comments').textContent;
 
     descriptionFullSizePicture.textContent = evt.target.alt;
     body.classList.add('modal-open');
-    const createComments = Array.from({length: evt.target.closest('.picture').querySelector('.picture__comments').textContent}, createComment);
+    const createComments = Array.from({length: picture.querySelector('.picture__comments').textContent}, createComment);
     const newComments = createCommentElement(createComments);
     socialComments.innerHTML = '';
 
@@ -70,6 +71,9 @@ const onPicturelistClickHandler = (evt) => {
       }
     }
 
+
+
+    
     commentsLoaderFullSizePicture.addEventListener('click', () => {
       loadMoreComments(newComments, socialComments, commentsQuantity);
       return loadMoreComments;

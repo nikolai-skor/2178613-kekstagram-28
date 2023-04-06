@@ -1,4 +1,4 @@
-import {imageUploadPreview} from './form-editing.js';
+import {imageUploadPreview} from './form-load-editing.js';
 
 // значение кнопки изменения размера загружаемой фотографии
 const scaleControlValue = document.querySelector('.scale__control--value');

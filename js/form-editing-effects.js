@@ -1,4 +1,4 @@
-import {imageUploadPreview} from './form-editing.js';
+import {imageUploadPreview} from './form-load-editing.js';
 // элемент фотография предпросмотра
 const previewPicture = imageUploadPreview.querySelector('img');
 
@@ -29,6 +29,7 @@ const pictureEffects = document.querySelectorAll('.effects__radio');
 // };
 
 // console.log(arrayPictureEffects());
+
 
 // функция добавляет класс выбранного эффекта в превью
 const addClassToPreview = function (evt) {
