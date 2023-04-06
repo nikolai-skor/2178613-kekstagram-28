@@ -18,6 +18,7 @@ const userOpenUploadFile = function () {
   openFormEditing();
   scaleControlSmaller.addEventListener('click', onClickControlSmaller);
   scaleControlBigger.addEventListener('click', onClickControlBigger);
+  
 });
 }
 

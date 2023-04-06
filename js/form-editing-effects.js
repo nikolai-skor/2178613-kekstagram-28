@@ -1,5 +1,9 @@
+
+
 import {imageUploadPreview} from './form-editing.js';
 
+
+const slider = document.querySelector('.effect-level__slider');
 // контейнер слайдера эффектов
 const sliderElement = document.querySelector('.img-upload__effect-level');
 // уровень эффектов
@@ -21,15 +25,9 @@ const pictureEffects = document.querySelectorAll('.effects__radio');
 
 // const sliderElement = document.querySelector('.effect-level__slider');
 
-noUiSlider.create(sliderElement, {
-  range: {
-    min: 0,
-    max: 100,
-  },
-  start: 80,
-})
 
 
+export {slider,sliderElement};
 
 
 // console.log(pictureEffects[0]);
