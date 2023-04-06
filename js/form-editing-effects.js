@@ -32,8 +32,7 @@ const pictureEffects = document.querySelectorAll('.effects__radio');
 
 // функция добавляет класс выбранного эффекта в превью
 const addClassToPreview = function (evt) {
-  previewPicture.classList.remove();
-  let newClass = '';
+   let newClass = '';
   for (let i = 0; i < pictureEffects.length; i++) {
     if (pictureEffects[i].value === evt.target.value) {
       newClass = `effects__preview--${evt.target.value}`;
@@ -41,12 +40,12 @@ const addClassToPreview = function (evt) {
     } else {
       previewPicture.classList.remove(`effects__preview--${pictureEffects[i].value}`);
     }
+return  console.log(previewPicture);
   }
 };
-// console.log(previewPicture);
 // функция добавляет класс выбранного эффекта в превью при изменении эффекта
-effectsList.addEventListener('change', addClassToPreview);
 
+addClassToPreview();
 
 const createSlider = () => {
   noUiSlider.create(sliderElement, {
@@ -60,9 +59,9 @@ const createSlider = () => {
   });
 };
 
-// sliderElement.noUiSlider.on('update', (...rest) => {
-//   effectsLevelValue.value = sliderElement.noUiSlider.get();
-// });
+sliderElement.noUiSlider.on('update', (...rest) => {
+  effectsLevelValue.value = sliderElement.noUiSlider.get();
+});
 
 
 createSlider();
