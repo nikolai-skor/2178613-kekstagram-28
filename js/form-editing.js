@@ -1,6 +1,7 @@
 import {isEscapeKey} from './utils.js';
 import {onClickControlSmaller, onClickControlBigger} from './form-editing-size.js';
 
+
 const formEditing = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 const uploadFile = document.querySelector('#upload-file');
@@ -15,12 +16,11 @@ const imageUploadPreview = document.querySelector('.img-upload__preview');
 // открывает просмотр фотографии в режиме загрузки
 const userOpenUploadFile = function () {
   uploadFile.addEventListener('change', () => {
-  openFormEditing();
-  scaleControlSmaller.addEventListener('click', onClickControlSmaller);
-  scaleControlBigger.addEventListener('click', onClickControlBigger);
-  
-});
-}
+    openFormEditing();
+    scaleControlSmaller.addEventListener('click', onClickControlSmaller);
+    scaleControlBigger.addEventListener('click', onClickControlBigger);
+      });
+};
 
 // открывает просмотр фотографии в режиме редактирования
 const openFormEditing = function () {
