@@ -22,8 +22,6 @@ const createRandomIdFromRangeGenerator = function (min, max) {
   };
 };
 
-
-
 // проверка события клавиши Escape
 const isEscapeKey = (evt) => evt.key === 'Escape';
 

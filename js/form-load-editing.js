@@ -19,31 +19,31 @@ const userOpenUploadFile = function () {
     openFormEditing();
     scaleControlSmaller.addEventListener('click', onClickControlSmaller);
     scaleControlBigger.addEventListener('click', onClickControlBigger);
-      });
+  });
 };
 
 // открывает просмотр фотографии в режиме редактирования
-const openFormEditing = function () {
+function openFormEditing() {
   formLoadEditing.classList.remove('hidden');
   body.classList.add('.modal-open');
   uploadCancel.addEventListener('click', closeFormEditing);
   document.addEventListener('keydown', onDocumentKeydown);
-};
+}
 
 // закрывает просмотр фотографии в режиме редактирования
-const closeFormEditing = function () {
+function closeFormEditing() {
   formLoadEditing.classList.add('hidden');
   body.classList.remove('.modal-open');
   uploadCancel.removeEventListener('click', closeFormEditing);
   document.removeEventListener('keydown', onDocumentKeydown);
-};
+}
 
 // закрывает просмотр фотографии в режиме редактирования на клавиатуре
-const onDocumentKeydown = function (evt) {
+function onDocumentKeydown(evt) {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
     closeFormEditing();
   }
-};
+}
 
 export {userOpenUploadFile, imageUploadPreview};

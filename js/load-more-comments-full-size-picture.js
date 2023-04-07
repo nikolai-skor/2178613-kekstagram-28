@@ -1,7 +1,4 @@
 import {commentsCounterFullSizePicture} from './full-size-picture.js';
-import {createComment} from './generate-comment.js';
-import {createCommentElement} from './create-comment-elements.js';
-
 
 const loadMoreComments = function (items, list, comments) {
   for (let i = items.children.length - 1; i >= 0; i--) {
