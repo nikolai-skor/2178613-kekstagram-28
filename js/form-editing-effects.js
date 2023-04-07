@@ -83,7 +83,7 @@ effectsList.addEventListener('change', (evt) => {
   }
   if (evt.target.value === 'sepia') {
     sliderElement.noUiSlider.on('update', () => {
-      previewPicture.style.filter = `sepia(${effectsLevelValue.value})`;
+      previewPicture.style.filter = `sepia(${sliderElement.noUiSlider.get()})`;
     });
     sliderContainer.display = 'block';
 
@@ -99,7 +99,7 @@ effectsList.addEventListener('change', (evt) => {
   }
   if (evt.target.value === 'marvin') {
     sliderElement.noUiSlider.on('update', () => {
-      previewPicture.style.filter = `invert(${effectsLevelValue.value}%)`;
+      previewPicture.style.filter = `invert(${sliderElement.noUiSlider.get()}%)`;
     });
 
     sliderContainer.display = 'block';
@@ -116,7 +116,7 @@ effectsList.addEventListener('change', (evt) => {
   }
   if (evt.target.value === 'phobos') {
     sliderElement.noUiSlider.on('update', () => {
-      previewPicture.style.filter = `blur(${effectsLevelValue.value}px)`;
+      previewPicture.style.filter = `blur(${sliderElement.noUiSlider.get()}px)`;
     });
 
     sliderContainer.display = 'block';
@@ -133,7 +133,7 @@ effectsList.addEventListener('change', (evt) => {
   }
   if (evt.target.value === 'heat') {
     sliderElement.noUiSlider.on('update', () => {
-      previewPicture.style.filter = `brightness(${effectsLevelValue.value})`;
+      previewPicture.style.filter = `brightness(${sliderElement.noUiSlider.get()})`;
     });
     sliderContainer.display = 'block';
 
